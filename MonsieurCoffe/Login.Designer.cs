@@ -80,6 +80,7 @@
             this.textBox1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(74, 89);
             this.textBox1.Name = "textBox1";
+            this.textBox1.PasswordChar = '•';
             this.textBox1.Size = new System.Drawing.Size(222, 28);
             this.textBox1.TabIndex = 4;
             // 
