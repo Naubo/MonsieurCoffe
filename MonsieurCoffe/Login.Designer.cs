@@ -33,7 +33,7 @@
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.txbEmail = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbSenha = new System.Windows.Forms.TextBox();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -75,14 +75,14 @@
             this.txbEmail.Size = new System.Drawing.Size(222, 28);
             this.txbEmail.TabIndex = 3;
             // 
-            // textBox1
+            // txbSenha
             // 
-            this.textBox1.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(74, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '•';
-            this.textBox1.Size = new System.Drawing.Size(222, 28);
-            this.textBox1.TabIndex = 4;
+            this.txbSenha.Font = new System.Drawing.Font("Palatino Linotype", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbSenha.Location = new System.Drawing.Point(74, 89);
+            this.txbSenha.Name = "txbSenha";
+            this.txbSenha.PasswordChar = '•';
+            this.txbSenha.Size = new System.Drawing.Size(222, 28);
+            this.txbSenha.TabIndex = 4;
             // 
             // btnEntrar
             // 
@@ -94,6 +94,7 @@
             this.btnEntrar.TabIndex = 5;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // Login
             // 
@@ -102,7 +103,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(308, 172);
             this.Controls.Add(this.btnEntrar);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txbSenha);
             this.Controls.Add(this.txbEmail);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblSenha);
@@ -124,7 +125,7 @@
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txbEmail;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbSenha;
         private System.Windows.Forms.Button btnEntrar;
     }
 }
