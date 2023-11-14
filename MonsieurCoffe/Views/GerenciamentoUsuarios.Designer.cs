@@ -48,8 +48,8 @@
             this.lblNomeEditar = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbApagar = new System.Windows.Forms.GroupBox();
-            this.lblApagar = new System.Windows.Forms.Label();
             this.btnApagar = new System.Windows.Forms.Button();
+            this.lblApagar = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbCadastro.SuspendLayout();
@@ -178,6 +178,7 @@
             this.btnEditar.TabIndex = 6;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txbSenhaEditar
             // 
@@ -249,16 +250,6 @@
             this.gbApagar.TabStop = false;
             this.gbApagar.Text = "APAGAR";
             // 
-            // lblApagar
-            // 
-            this.lblApagar.AutoSize = true;
-            this.lblApagar.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApagar.Location = new System.Drawing.Point(9, 21);
-            this.lblApagar.Name = "lblApagar";
-            this.lblApagar.Size = new System.Drawing.Size(202, 15);
-            this.lblApagar.TabIndex = 0;
-            this.lblApagar.Text = "Selecione o usuário para apagar.";
-            // 
             // btnApagar
             // 
             this.btnApagar.BackColor = System.Drawing.Color.IndianRed;
@@ -270,6 +261,17 @@
             this.btnApagar.TabIndex = 1;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            // 
+            // lblApagar
+            // 
+            this.lblApagar.AutoSize = true;
+            this.lblApagar.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApagar.Location = new System.Drawing.Point(9, 21);
+            this.lblApagar.Name = "lblApagar";
+            this.lblApagar.Size = new System.Drawing.Size(202, 15);
+            this.lblApagar.TabIndex = 0;
+            this.lblApagar.Text = "Selecione o usuário para apagar.";
             // 
             // pictureBox1
             // 
