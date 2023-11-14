@@ -28,17 +28,22 @@ namespace MonsieurCoffe
              // obter o resultado do SELECT no banco:
             var resultado = usuario.Logar();
 
-            MessageBox.Show(resultado.Rows.Count.ToString());
+                        //MessageBox.Show(resultado.Rows.Count.ToString());
 
             if (resultado.Rows.Count == 1)
             {
-                usuario.Nome_Completo = resultado.Rows[0]["nome_completo"].ToString ();
-                usuario.Id = (int)resultado.Rows[0]["id"];
-                MessageBox.Show(usuario.Nome_Completo);
+                        usuario.Nome_Completo = resultado.Rows[0]["nome_completo"].ToString ();
+                        usuario.Id = (int)resultado.Rows[0]["id"];
+                        //MessageBox.Show(usuario.Nome_Completo);
 
                 //abrir janela menu
-                MenuPrincipal janela = new MenuPrincipal();
+                MenuPrincipal janela = new MenuPrincipal(usuario);
+                //esconder tabela de atual
+                Hide();
+                //mostrar menu
                 janela.ShowDialog();
+                //mostrar login qnd menu fechar:
+                Show();
             }
             else
             {

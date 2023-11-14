@@ -12,14 +12,29 @@ namespace MonsieurCoffe
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        //Objetos globais
+        Classes.Usuario usuario = new Classes.Usuario();
+
+        public MenuPrincipal(Classes.Usuario usuario)
         {
             InitializeComponent();
+            //Atribuit usuario local no global
+            this.usuario = usuario;
+
+            //Mudar label de apresentação
+            lblSaudacao.Text = "Ola " + usuario.Nome_Completo;
         }
 
         private void pctSair_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
+        }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            //instanciar janela
+            Views.GerenciamentoUsuarios janela = new Views.GerenciamentoUsuarios();
+            janela.Show();
         }
     }
 }
