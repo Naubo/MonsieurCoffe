@@ -123,18 +123,53 @@ namespace MonsieurCoffe.Views
             {
                 MessageBox.Show("Usuário modificado!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                //limpar os campos
-                txbNomeCadas.Clear();
-                txbmailCadas.Clear();
-                txbSenhasCadas.Clear();
-
-                //atualizar dgv
+                // atualizar dgv
                 dgvUsuarios.DataSource = usuario.ListarTudo();
+
+                //limpar campos de edicao
+                txbEmailEditar.Clear();
+                txbNomeEditar.Clear();
+                txbSenhaEditar.Clear();
+                lblApagar.Text = "Selecione um usuário para apagar:";
+
+                //desabilitar group box edição e apagar
+                gbEditar.Enabled = false;
+                gbApagar.Enabled = false;
             }
             else
             {
                 MessageBox.Show("Falha ao modificar usuário!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbEditar_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbCadastro_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbApagar_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

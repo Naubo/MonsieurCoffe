@@ -72,6 +72,7 @@
             this.dgvUsuarios.Size = new System.Drawing.Size(526, 391);
             this.dgvUsuarios.TabIndex = 0;
             this.dgvUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellClick);
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // gbCadastro
             // 
@@ -89,6 +90,7 @@
             this.gbCadastro.TabIndex = 1;
             this.gbCadastro.TabStop = false;
             this.gbCadastro.Text = "CADASTRO";
+            this.gbCadastro.Enter += new System.EventHandler(this.gbCadastro_Enter);
             // 
             // btnCadastrar
             // 
@@ -167,6 +169,7 @@
             this.gbEditar.TabIndex = 7;
             this.gbEditar.TabStop = false;
             this.gbEditar.Text = "EDITAR";
+            this.gbEditar.Enter += new System.EventHandler(this.gbEditar_Enter);
             // 
             // btnEditar
             // 
@@ -237,6 +240,7 @@
             this.lblTitulo.Size = new System.Drawing.Size(375, 44);
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "Monsieur Coffe :: Usuários";
+            this.lblTitulo.Click += new System.EventHandler(this.lblTitulo_Click);
             // 
             // gbApagar
             // 
@@ -249,6 +253,7 @@
             this.gbApagar.TabIndex = 9;
             this.gbApagar.TabStop = false;
             this.gbApagar.Text = "APAGAR";
+            this.gbApagar.Enter += new System.EventHandler(this.gbApagar_Enter);
             // 
             // btnApagar
             // 
@@ -282,6 +287,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // GerenciamentoUsuarios
             // 

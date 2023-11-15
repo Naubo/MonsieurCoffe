@@ -125,7 +125,14 @@ namespace MonsieurCoffe.Classes
             }
         public bool Modificar()
         {
-            string comando = "UPDATE usuarios SET (nome_completo=@nome_completo, email=@email, senha=@senha WHERE id=@id)";
+            string comando = "UPDATE usuarios SET nome_completo = @nome_completo, " +
+                 "email = @email, senha = @senha WHERE id = @id";
+            // Comando SQL caso a senha esteja vazia:
+            if (Senha == "")
+            {
+                comando = "UPDATE usuarios SET nome_completo = @nome_completo, " +
+                "email = @email WHERE id = @id";
+            }
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
@@ -133,8 +140,7 @@ namespace MonsieurCoffe.Classes
             cmd.Parameters.AddWithValue("@id", Id);
             cmd.Parameters.AddWithValue("@nome_completo", Nome_Completo);
             cmd.Parameters.AddWithValue("@email", Email);
-
-            //obter hash:
+            // Obter o hash:
             string hashsenha = EasyEncryption.SHA.ComputeSHA256Hash(Senha);
             cmd.Parameters.AddWithValue("@senha", hashsenha);
             cmd.Prepare();
