@@ -164,5 +164,5 @@ namespace MonsieurCoffe.Classes
             }
         }
     }
-    }
+}
 

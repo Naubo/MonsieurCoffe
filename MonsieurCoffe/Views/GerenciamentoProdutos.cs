@@ -54,7 +54,80 @@ namespace MonsieurCoffe.Views
                 MessageBox.Show("Falha ao cadastrar Produtos");
             }
         }
-        private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //instanciar usuario
+            Classes.Produto produto = new Classes.Produto();
+            //obter valores dos campos
+            produto.Id = IdSelecionado;
+            produto.Nome = txbNomeEditar.Text;
+            produto.Preco = double.Parse(txbPrecoEditar.Text);
+            produto.Id_Categoria = int.Parse(txbIdCategoriaEditar.Text);
+            produto.Id_RespCadastro = usuario.Id;
+
+            if (produto.Modificar() == true)
+            {
+                MessageBox.Show("Produto modificado!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // atualizar dgv
+                dgvProdutos.DataSource = produto.ListarTudo();
+
+                //limpar os campos
+                txbNomeProduto.Clear();
+                txbPreco.Clear();
+                txbIdCategoriaCadastrar.Clear();
+                lblApagar.Text = "Selecione um Produto para apagar:";
+
+                //desabilitar group box edição e apagar
+                gbEditar.Enabled = false;
+                gbApagar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Falha ao modificar Produto!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            Classes.Produto produto = new Classes.Produto();
+            produto.Id = IdSelecionado;
+
+            //mostrar messagebox
+            var r = MessageBox.Show("Tem certeza que deseja remover?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                //apagar
+                if (produto.Apagar() == true)
+                {
+                    MessageBox.Show("Produto Removido!", "SUCESSO",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // atualizar dgv
+                    dgvProdutos.DataSource = produto.ListarTudo();
+
+                    //limpar os campos
+                    txbNomeProduto.Clear();
+                    txbPreco.Clear();
+                    txbIdCategoriaCadastrar.Clear();
+                    lblApagar.Text = "Selecione um Produto para apagar:";
+
+                    //desabilitar group box edição e apagar
+                    gbEditar.Enabled = false;
+                    gbApagar.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao remover Produto!", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+
+        private void dgvProdutos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //aqui vai mostrar as info do banco de dados 
 
@@ -70,7 +143,7 @@ namespace MonsieurCoffe.Views
 
             txbNomeEditar.Text = linha.Cells[1].Value.ToString();
             txbPrecoEditar.Text = linha.Cells[2].Value.ToString();
-            //.Text = linha.Cells[3].Value.ToString();
+            txbIdCategoriaEditar.Text = linha.Cells[3].Value.ToString();
 
 
             lblApagar.Text = linha.Cells[0].Value.ToString() + " - " +
@@ -79,47 +152,5 @@ namespace MonsieurCoffe.Views
             //Salvar o id na variavel global
             IdSelecionado = (int)linha.Cells[0].Value;
         }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnApagar_Click(object sender, EventArgs e)
-        {
-            Classes.Produto produto = new Classes.Produto();
-            usuario.Id = IdSelecionado;
-
-            //mostrar messagebox
-            var r = MessageBox.Show("Tem certeza que deseja remover?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (r == DialogResult.Yes)
-            {
-                //apagar
-                if (produto.Apagar() == true)
-                {
-                    MessageBox.Show("Produto Removido!", "SUCESSO",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // atualizar dgv
-                    dgvProdutos.DataSource = usuario.ListarTudo();
-
-                    //limpar campos de edicao
-                    //limpar os campos
-                    txbNomeProduto.Clear();
-                    txbPreco.Clear();
-                    txbIdCategoriaCadastrar.Clear();
-                    lblApagar.Text = "Selecione um usuário para apagar:";
-
-                    //desabilitar group box edição e apagar
-                    gbEditar.Enabled = false;
-                    gbApagar.Enabled = false;
-                }
-                else
-                {
-                    MessageBox.Show("Falha ao remover usuário!", "ERROR",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-        }
-        }
+    }
     }

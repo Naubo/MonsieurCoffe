@@ -52,8 +52,8 @@ namespace MonsieurCoffe.Views
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //ativar os groupbox editar e apagar
-            gbEditar.Enabled = true;
             gbApagar.Enabled = true;
+            gbEditar.Enabled = true;
 
             //obter linha clicada
             int linhaSelecionada = dgvUsuarios.CurrentCell.RowIndex;
