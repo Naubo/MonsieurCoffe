@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonsieurCoffe.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,113 @@ namespace MonsieurCoffe.Views
 {
     public partial class GerenciamentoProdutos : Form
     {
-        public GerenciamentoProdutos()
+        //variaveis globais:
+        Classes.Usuario usuario = new Classes.Usuario();
+        int IdSelecionado = 0;
+
+        public GerenciamentoProdutos(Classes.Usuario usuario)
         {
             InitializeComponent();
+            this.usuario = usuario;
+
+            Classes.Produto produto = new Classes.Produto();
+            // atribuir tabela (resultadodo select) no DGV:
+            dgvProdutos.DataSource = produto.ListarTudo();
         }
 
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            //instanciar produto
+            Classes.Produto produto = new Classes.Produto();
+            //obter valores
+            produto.Nome = txbNomeProduto.Text;
+            produto.Preco = double.Parse(txbPreco.Text);
+            produto.Id_Categoria = int.Parse(txbIdCategoriaCadastrar.Text);
+            produto.Id_RespCadastro = usuario.Id; //??????
+
+            if (produto.Cadastrar() == true)
+            {
+                MessageBox.Show("Produto cadastrado com sucesso!");
+
+                //limpar os campos
+                txbNomeProduto.Clear();
+                txbPreco.Clear();
+                txbIdCategoriaCadastrar.Clear();
+
+                //atualizar dgv
+                dgvProdutos.DataSource = produto.ListarTudo();
+            }
+            else
+            {
+                MessageBox.Show("Falha ao cadastrar Produtos");
+            }
+        }
+        private void dgvProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //aqui vai mostrar as info do banco de dados 
+
+            //ativar os groupbox editar e apagar
+            gbEditar.Enabled = true;
+            gbApagar.Enabled = true;
+
+            //obter linha clicada
+            int linhaSelecionada = dgvProdutos.CurrentCell.RowIndex;
+
+            //armazenar os dados da linha clicada em linha (tipo um vetor)
+            var linha = dgvProdutos.Rows[linhaSelecionada];
+
+            txbNomeEditar.Text = linha.Cells[1].Value.ToString();
+            txbPrecoEditar.Text = linha.Cells[2].Value.ToString();
+            //.Text = linha.Cells[3].Value.ToString();
+
+
+            lblApagar.Text = linha.Cells[0].Value.ToString() + " - " +
+                linha.Cells[1].Value.ToString();
+
+            //Salvar o id na variavel global
+            IdSelecionado = (int)linha.Cells[0].Value;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            Classes.Produto produto = new Classes.Produto();
+            usuario.Id = IdSelecionado;
+
+            //mostrar messagebox
+            var r = MessageBox.Show("Tem certeza que deseja remover?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                //apagar
+                if (produto.Apagar() == true)
+                {
+                    MessageBox.Show("Produto Removido!", "SUCESSO",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // atualizar dgv
+                    dgvProdutos.DataSource = usuario.ListarTudo();
+
+                    //limpar campos de edicao
+                    //limpar os campos
+                    txbNomeProduto.Clear();
+                    txbPreco.Clear();
+                    txbIdCategoriaCadastrar.Clear();
+                    lblApagar.Text = "Selecione um usuário para apagar:";
+
+                    //desabilitar group box edição e apagar
+                    gbEditar.Enabled = false;
+                    gbApagar.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao remover usuário!", "ERROR",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+        }
     }
-}

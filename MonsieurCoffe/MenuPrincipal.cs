@@ -40,7 +40,7 @@ namespace MonsieurCoffe
         private void btnProdutos_Click(object sender, EventArgs e)
         {
             //instanciar janela
-            Views.GerenciamentoProdutos janela = new Views.GerenciamentoProdutos();
+            Views.GerenciamentoProdutos janela = new Views.GerenciamentoProdutos(usuario);
             janela.Show();
         }
     }
