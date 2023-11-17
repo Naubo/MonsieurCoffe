@@ -47,8 +47,8 @@
             this.gbApagar = new System.Windows.Forms.GroupBox();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblApagar = new System.Windows.Forms.Label();
-            this.txbIdCategoriaCadastrar = new System.Windows.Forms.TextBox();
-            this.txbIdCategoriaEditar = new System.Windows.Forms.TextBox();
+            this.cbCategoriaCadas = new System.Windows.Forms.ComboBox();
+            this.cbCategoriaEditar = new System.Windows.Forms.ComboBox();
             this.gbCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.gbEditar.SuspendLayout();
@@ -68,7 +68,7 @@
             // 
             // gbCadastro
             // 
-            this.gbCadastro.Controls.Add(this.txbIdCategoriaCadastrar);
+            this.gbCadastro.Controls.Add(this.cbCategoriaCadas);
             this.gbCadastro.Controls.Add(this.btnCadastrar);
             this.gbCadastro.Controls.Add(this.txbPreco);
             this.gbCadastro.Controls.Add(this.txbNomeProduto);
@@ -154,7 +154,7 @@
             // 
             // gbEditar
             // 
-            this.gbEditar.Controls.Add(this.txbIdCategoriaEditar);
+            this.gbEditar.Controls.Add(this.cbCategoriaEditar);
             this.gbEditar.Controls.Add(this.btnEditar);
             this.gbEditar.Controls.Add(this.txbPrecoEditar);
             this.gbEditar.Controls.Add(this.txbNomeEditar);
@@ -262,19 +262,26 @@
             this.lblApagar.TabIndex = 0;
             this.lblApagar.Text = "Selecione o usuário para apagar.";
             // 
-            // txbIdCategoriaCadastrar
+            // cbCategoriaCadas
             // 
-            this.txbIdCategoriaCadastrar.Location = new System.Drawing.Point(114, 96);
-            this.txbIdCategoriaCadastrar.Name = "txbIdCategoriaCadastrar";
-            this.txbIdCategoriaCadastrar.Size = new System.Drawing.Size(230, 22);
-            this.txbIdCategoriaCadastrar.TabIndex = 7;
+            this.cbCategoriaCadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCategoriaCadas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaCadas.FormattingEnabled = true;
+            this.cbCategoriaCadas.Location = new System.Drawing.Point(114, 91);
+            this.cbCategoriaCadas.Name = "cbCategoriaCadas";
+            this.cbCategoriaCadas.Size = new System.Drawing.Size(230, 23);
+            this.cbCategoriaCadas.TabIndex = 15;
+            this.cbCategoriaCadas.SelectedIndexChanged += new System.EventHandler(this.cbCategoriaCadas_SelectedIndexChanged);
             // 
-            // txbIdCategoriaEditar
+            // cbCategoriaEditar
             // 
-            this.txbIdCategoriaEditar.Location = new System.Drawing.Point(114, 94);
-            this.txbIdCategoriaEditar.Name = "txbIdCategoriaEditar";
-            this.txbIdCategoriaEditar.Size = new System.Drawing.Size(230, 22);
-            this.txbIdCategoriaEditar.TabIndex = 8;
+            this.cbCategoriaEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCategoriaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaEditar.FormattingEnabled = true;
+            this.cbCategoriaEditar.Location = new System.Drawing.Point(114, 95);
+            this.cbCategoriaEditar.Name = "cbCategoriaEditar";
+            this.cbCategoriaEditar.Size = new System.Drawing.Size(230, 23);
+            this.cbCategoriaEditar.TabIndex = 16;
             // 
             // GerenciamentoProdutos
             // 
@@ -322,7 +329,7 @@
         private System.Windows.Forms.GroupBox gbApagar;
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Label lblApagar;
-        private System.Windows.Forms.TextBox txbIdCategoriaCadastrar;
-        private System.Windows.Forms.TextBox txbIdCategoriaEditar;
+        private System.Windows.Forms.ComboBox cbCategoriaCadas;
+        private System.Windows.Forms.ComboBox cbCategoriaEditar;
     }
 }
