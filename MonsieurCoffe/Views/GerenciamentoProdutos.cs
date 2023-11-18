@@ -44,34 +44,41 @@ namespace MonsieurCoffe.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //instanciar produto
-            Classes.Produto produto = new Classes.Produto();
-            //obter valores
-            produto.Nome = txbNomeProduto.Text;
-            produto.Preco = double.Parse(txbPreco.Text);
-
-            string[] cat = cbCategoriaCadas.Text.Split('-');
-            produto.Id_Categoria = int.Parse(cat[0]);
-
-            produto.Id_RespCadastro = usuario.Id; //??????
-
-            if (produto.Cadastrar() == true)
+            if ((txbNomeProduto.Text != "") || (txbPreco.Text != ""))
             {
-                MessageBox.Show("Produto cadastrado com sucesso!");
+                //instanciar produto
+                Classes.Produto produto = new Classes.Produto();
+                //obter valores
+                produto.Nome = txbNomeProduto.Text;
+                produto.Preco = double.Parse(txbPreco.Text);
 
-                //limpar os campos
-                txbNomeProduto.Clear();
-                txbPreco.Clear();
+                string[] cat = cbCategoriaCadas.Text.Split('-');
+                produto.Id_Categoria = int.Parse(cat[0]);
 
-                //atualizar dgv
-                dgvProdutos.DataSource = produto.ListarTudo();
+                produto.Id_RespCadastro = usuario.Id; //??????
+
+                if (produto.Cadastrar() == true)
+                {
+                    MessageBox.Show("Produto cadastrado com sucesso!");
+
+                    //limpar os campos
+                    txbNomeProduto.Clear();
+                    txbPreco.Clear();
+
+                    //atualizar dgv
+                    dgvProdutos.DataSource = produto.ListarTudo();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao cadastrar Produtos");
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao cadastrar Produtos");
+                MessageBox.Show("Preencha os espaços vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
 
+        }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -180,14 +187,35 @@ namespace MonsieurCoffe.Views
             //Salvar o id na variavel global
             IdSelecionado = (int)linha.Cells[0].Value;
         }
-
-
-
-
-
-        private void cbCategoriaCadas_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnCatCriar_Click(object sender, EventArgs e)
         {
+            //instanciar
+            Classes.Categoria categoria = new Classes.Categoria();
+
+            // guardar valores
+            categoria.Nome = txbCatCriar.Text;
+
+            if (categoria.Criar() == true)
+            {
+                MessageBox.Show("Categoria criada com sucesso!");
+
+                var r = categoria.ListarTudo();
+                cbCategoriaCadas.Items.Clear();
+                cbCategoriaEditar.Items.Clear();
+
+                foreach (DataRow linha in r.Rows)
+                {
+
+                    cbCategoriaCadas.Items.Add(linha.ItemArray[0].ToString() + " - " + linha.ItemArray[1].ToString());
+                    cbCategoriaEditar.Items.Add(linha.ItemArray[0].ToString() + " - " + linha.ItemArray[1].ToString());
+                }
+            }
+            else
+            {
+                MessageBox.Show("Falha ao cadastrar categoria!");
+            }
+            }
 
         }
     }
-    }
+

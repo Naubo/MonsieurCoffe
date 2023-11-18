@@ -30,6 +30,7 @@
         {
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbCadastro = new System.Windows.Forms.GroupBox();
+            this.cbCategoriaCadas = new System.Windows.Forms.ComboBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txbPreco = new System.Windows.Forms.TextBox();
             this.txbNomeProduto = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.lblNomeCadas = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.gbEditar = new System.Windows.Forms.GroupBox();
+            this.cbCategoriaEditar = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txbPrecoEditar = new System.Windows.Forms.TextBox();
             this.txbNomeEditar = new System.Windows.Forms.TextBox();
@@ -47,12 +49,15 @@
             this.gbApagar = new System.Windows.Forms.GroupBox();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblApagar = new System.Windows.Forms.Label();
-            this.cbCategoriaCadas = new System.Windows.Forms.ComboBox();
-            this.cbCategoriaEditar = new System.Windows.Forms.ComboBox();
+            this.gbCategotria = new System.Windows.Forms.GroupBox();
+            this.btnCatCriar = new System.Windows.Forms.Button();
+            this.txbCatCriar = new System.Windows.Forms.TextBox();
+            this.lblCatNomeCriar = new System.Windows.Forms.Label();
             this.gbCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.gbEditar.SuspendLayout();
             this.gbApagar.SuspendLayout();
+            this.gbCategotria.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -77,12 +82,22 @@
             this.gbCadastro.Controls.Add(this.lblNomeCadas);
             this.gbCadastro.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCadastro.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gbCadastro.Location = new System.Drawing.Point(746, 83);
+            this.gbCadastro.Location = new System.Drawing.Point(746, 102);
             this.gbCadastro.Name = "gbCadastro";
             this.gbCadastro.Size = new System.Drawing.Size(351, 169);
             this.gbCadastro.TabIndex = 12;
             this.gbCadastro.TabStop = false;
             this.gbCadastro.Text = "CADASTRAR PRODUTO";
+            // 
+            // cbCategoriaCadas
+            // 
+            this.cbCategoriaCadas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCategoriaCadas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaCadas.FormattingEnabled = true;
+            this.cbCategoriaCadas.Location = new System.Drawing.Point(114, 91);
+            this.cbCategoriaCadas.Name = "cbCategoriaCadas";
+            this.cbCategoriaCadas.Size = new System.Drawing.Size(230, 23);
+            this.cbCategoriaCadas.TabIndex = 15;
             // 
             // btnCadastrar
             // 
@@ -146,9 +161,9 @@
             this.dgvProdutos.AllowUserToResizeRows = false;
             this.dgvProdutos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProdutos.Location = new System.Drawing.Point(30, 83);
+            this.dgvProdutos.Location = new System.Drawing.Point(30, 102);
             this.dgvProdutos.Name = "dgvProdutos";
-            this.dgvProdutos.Size = new System.Drawing.Size(688, 438);
+            this.dgvProdutos.Size = new System.Drawing.Size(688, 419);
             this.dgvProdutos.TabIndex = 13;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
             // 
@@ -164,12 +179,22 @@
             this.gbEditar.Enabled = false;
             this.gbEditar.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.gbEditar.Location = new System.Drawing.Point(746, 258);
+            this.gbEditar.Location = new System.Drawing.Point(746, 277);
             this.gbEditar.Name = "gbEditar";
             this.gbEditar.Size = new System.Drawing.Size(351, 169);
             this.gbEditar.TabIndex = 13;
             this.gbEditar.TabStop = false;
             this.gbEditar.Text = "EDITAR PRODUTO";
+            // 
+            // cbCategoriaEditar
+            // 
+            this.cbCategoriaEditar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbCategoriaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaEditar.FormattingEnabled = true;
+            this.cbCategoriaEditar.Location = new System.Drawing.Point(114, 95);
+            this.cbCategoriaEditar.Name = "cbCategoriaEditar";
+            this.cbCategoriaEditar.Size = new System.Drawing.Size(230, 23);
+            this.cbCategoriaEditar.TabIndex = 16;
             // 
             // btnEditar
             // 
@@ -258,36 +283,60 @@
             this.lblApagar.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApagar.Location = new System.Drawing.Point(9, 21);
             this.lblApagar.Name = "lblApagar";
-            this.lblApagar.Size = new System.Drawing.Size(202, 15);
+            this.lblApagar.Size = new System.Drawing.Size(207, 15);
             this.lblApagar.TabIndex = 0;
-            this.lblApagar.Text = "Selecione o usuário para apagar.";
+            this.lblApagar.Text = "Selecione o produto para apagar.";
             // 
-            // cbCategoriaCadas
+            // gbCategotria
             // 
-            this.cbCategoriaCadas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCategoriaCadas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoriaCadas.FormattingEnabled = true;
-            this.cbCategoriaCadas.Location = new System.Drawing.Point(114, 91);
-            this.cbCategoriaCadas.Name = "cbCategoriaCadas";
-            this.cbCategoriaCadas.Size = new System.Drawing.Size(230, 23);
-            this.cbCategoriaCadas.TabIndex = 15;
-            this.cbCategoriaCadas.SelectedIndexChanged += new System.EventHandler(this.cbCategoriaCadas_SelectedIndexChanged);
+            this.gbCategotria.Controls.Add(this.lblCatNomeCriar);
+            this.gbCategotria.Controls.Add(this.btnCatCriar);
+            this.gbCategotria.Controls.Add(this.txbCatCriar);
+            this.gbCategotria.Font = new System.Drawing.Font("Lucida Bright", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbCategotria.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.gbCategotria.Location = new System.Drawing.Point(414, 18);
+            this.gbCategotria.Name = "gbCategotria";
+            this.gbCategotria.Size = new System.Drawing.Size(330, 52);
+            this.gbCategotria.TabIndex = 15;
+            this.gbCategotria.TabStop = false;
+            this.gbCategotria.Text = "CRIAR CATEGORIA";
             // 
-            // cbCategoriaEditar
+            // btnCatCriar
             // 
-            this.cbCategoriaEditar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbCategoriaEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoriaEditar.FormattingEnabled = true;
-            this.cbCategoriaEditar.Location = new System.Drawing.Point(114, 95);
-            this.cbCategoriaEditar.Name = "cbCategoriaEditar";
-            this.cbCategoriaEditar.Size = new System.Drawing.Size(230, 23);
-            this.cbCategoriaEditar.TabIndex = 16;
+            this.btnCatCriar.BackColor = System.Drawing.Color.YellowGreen;
+            this.btnCatCriar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCatCriar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCatCriar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnCatCriar.Location = new System.Drawing.Point(242, 19);
+            this.btnCatCriar.Name = "btnCatCriar";
+            this.btnCatCriar.Size = new System.Drawing.Size(79, 25);
+            this.btnCatCriar.TabIndex = 16;
+            this.btnCatCriar.Text = "CRIAR";
+            this.btnCatCriar.UseVisualStyleBackColor = false;
+            this.btnCatCriar.Click += new System.EventHandler(this.btnCatCriar_Click);
+            // 
+            // txbCatCriar
+            // 
+            this.txbCatCriar.Location = new System.Drawing.Point(56, 21);
+            this.txbCatCriar.Name = "txbCatCriar";
+            this.txbCatCriar.Size = new System.Drawing.Size(180, 22);
+            this.txbCatCriar.TabIndex = 16;
+            // 
+            // lblCatNomeCriar
+            // 
+            this.lblCatNomeCriar.AutoSize = true;
+            this.lblCatNomeCriar.Location = new System.Drawing.Point(6, 24);
+            this.lblCatNomeCriar.Name = "lblCatNomeCriar";
+            this.lblCatNomeCriar.Size = new System.Drawing.Size(44, 15);
+            this.lblCatNomeCriar.TabIndex = 17;
+            this.lblCatNomeCriar.Text = "Nome:";
             // 
             // GerenciamentoProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1109, 533);
+            this.Controls.Add(this.gbCategotria);
             this.Controls.Add(this.gbApagar);
             this.Controls.Add(this.gbEditar);
             this.Controls.Add(this.dgvProdutos);
@@ -303,6 +352,8 @@
             this.gbEditar.PerformLayout();
             this.gbApagar.ResumeLayout(false);
             this.gbApagar.PerformLayout();
+            this.gbCategotria.ResumeLayout(false);
+            this.gbCategotria.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,5 +382,9 @@
         private System.Windows.Forms.Label lblApagar;
         private System.Windows.Forms.ComboBox cbCategoriaCadas;
         private System.Windows.Forms.ComboBox cbCategoriaEditar;
+        private System.Windows.Forms.GroupBox gbCategotria;
+        private System.Windows.Forms.Button btnCatCriar;
+        private System.Windows.Forms.TextBox txbCatCriar;
+        private System.Windows.Forms.Label lblCatNomeCriar;
     }
 }
