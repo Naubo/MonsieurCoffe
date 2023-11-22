@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GerenciamentoProdutos));
             this.lblTitulo = new System.Windows.Forms.Label();
             this.gbCadastro = new System.Windows.Forms.GroupBox();
             this.cbCategoriaCadas = new System.Windows.Forms.ComboBox();
@@ -50,9 +51,9 @@
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblApagar = new System.Windows.Forms.Label();
             this.gbCategotria = new System.Windows.Forms.GroupBox();
+            this.lblCatNomeCriar = new System.Windows.Forms.Label();
             this.btnCatCriar = new System.Windows.Forms.Button();
             this.txbCatCriar = new System.Windows.Forms.TextBox();
-            this.lblCatNomeCriar = new System.Windows.Forms.Label();
             this.gbCadastro.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.gbEditar.SuspendLayout();
@@ -226,7 +227,7 @@
             // lblIdCategoriaEditar
             // 
             this.lblIdCategoriaEditar.AutoSize = true;
-            this.lblIdCategoriaEditar.Location = new System.Drawing.Point(25, 94);
+            this.lblIdCategoriaEditar.Location = new System.Drawing.Point(25, 98);
             this.lblIdCategoriaEditar.Name = "lblIdCategoriaEditar";
             this.lblIdCategoriaEditar.Size = new System.Drawing.Size(83, 15);
             this.lblIdCategoriaEditar.TabIndex = 2;
@@ -301,6 +302,15 @@
             this.gbCategotria.TabStop = false;
             this.gbCategotria.Text = "CRIAR CATEGORIA";
             // 
+            // lblCatNomeCriar
+            // 
+            this.lblCatNomeCriar.AutoSize = true;
+            this.lblCatNomeCriar.Location = new System.Drawing.Point(6, 24);
+            this.lblCatNomeCriar.Name = "lblCatNomeCriar";
+            this.lblCatNomeCriar.Size = new System.Drawing.Size(44, 15);
+            this.lblCatNomeCriar.TabIndex = 17;
+            this.lblCatNomeCriar.Text = "Nome:";
+            // 
             // btnCatCriar
             // 
             this.btnCatCriar.BackColor = System.Drawing.Color.YellowGreen;
@@ -322,15 +332,6 @@
             this.txbCatCriar.Size = new System.Drawing.Size(180, 22);
             this.txbCatCriar.TabIndex = 16;
             // 
-            // lblCatNomeCriar
-            // 
-            this.lblCatNomeCriar.AutoSize = true;
-            this.lblCatNomeCriar.Location = new System.Drawing.Point(6, 24);
-            this.lblCatNomeCriar.Name = "lblCatNomeCriar";
-            this.lblCatNomeCriar.Size = new System.Drawing.Size(44, 15);
-            this.lblCatNomeCriar.TabIndex = 17;
-            this.lblCatNomeCriar.Text = "Nome:";
-            // 
             // GerenciamentoProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,7 +344,10 @@
             this.Controls.Add(this.gbCadastro);
             this.Controls.Add(this.lblTitulo);
             this.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GerenciamentoProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GerenciamentoProdutos";
             this.gbCadastro.ResumeLayout(false);
             this.gbCadastro.PerformLayout();
