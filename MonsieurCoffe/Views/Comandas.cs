@@ -32,7 +32,8 @@ namespace MonsieurCoffe.Views
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-
+            grbLançamento.Enabled = true;
+            grbInfo.Enabled = false;
         }
 
         private void dgvComandas_CellClick(object sender, DataGridViewCellEventArgs e)
