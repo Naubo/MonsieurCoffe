@@ -31,24 +31,24 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Comandas));
             this.grbInfo = new System.Windows.Forms.GroupBox();
             this.btnContinuar = new System.Windows.Forms.Button();
+            this.nudComanda = new System.Windows.Forms.NumericUpDown();
             this.txbCodProdutoInfo = new System.Windows.Forms.TextBox();
             this.lblProdutoInfo = new System.Windows.Forms.Label();
             this.lblComandaInfo = new System.Windows.Forms.Label();
             this.grbLançamento = new System.Windows.Forms.GroupBox();
+            this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnLancar = new System.Windows.Forms.Button();
             this.txbProdutoLanca = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.lblProduto = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvComandas = new System.Windows.Forms.DataGridView();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.nudComanda = new System.Windows.Forms.NumericUpDown();
-            this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
             this.grbInfo.SuspendLayout();
-            this.grbLançamento.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudComanda)).BeginInit();
+            this.grbLançamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).BeginInit();
             this.SuspendLayout();
             // 
             // grbInfo
@@ -79,6 +79,14 @@
             this.btnContinuar.Text = "CONTINUAR";
             this.btnContinuar.UseVisualStyleBackColor = false;
             this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
+            // 
+            // nudComanda
+            // 
+            this.nudComanda.Location = new System.Drawing.Point(18, 57);
+            this.nudComanda.Name = "nudComanda";
+            this.nudComanda.Size = new System.Drawing.Size(196, 25);
+            this.nudComanda.TabIndex = 14;
+            this.nudComanda.ValueChanged += new System.EventHandler(this.nudComanda_ValueChanged);
             // 
             // txbCodProdutoInfo
             // 
@@ -124,6 +132,27 @@
             this.grbLançamento.TabIndex = 4;
             this.grbLançamento.TabStop = false;
             this.grbLançamento.Text = "LANÇAMENTO";
+            // 
+            // nudQuantidade
+            // 
+            this.nudQuantidade.Location = new System.Drawing.Point(18, 116);
+            this.nudQuantidade.Name = "nudQuantidade";
+            this.nudQuantidade.Size = new System.Drawing.Size(196, 25);
+            this.nudQuantidade.TabIndex = 15;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(18, 174);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(196, 26);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "LIMPAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnLancar
             // 
@@ -193,34 +222,6 @@
             this.dgvComandas.TabIndex = 13;
             this.dgvComandas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComandas_CellClick);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelar.Location = new System.Drawing.Point(18, 174);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(196, 26);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "LIMPAR";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // nudComanda
-            // 
-            this.nudComanda.Location = new System.Drawing.Point(18, 57);
-            this.nudComanda.Name = "nudComanda";
-            this.nudComanda.Size = new System.Drawing.Size(196, 25);
-            this.nudComanda.TabIndex = 14;
-            // 
-            // nudQuantidade
-            // 
-            this.nudQuantidade.Location = new System.Drawing.Point(18, 116);
-            this.nudQuantidade.Name = "nudQuantidade";
-            this.nudQuantidade.Size = new System.Drawing.Size(196, 25);
-            this.nudQuantidade.TabIndex = 15;
-            // 
             // Comandas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,11 +238,11 @@
             this.Text = "Comandas";
             this.grbInfo.ResumeLayout(false);
             this.grbInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudComanda)).EndInit();
             this.grbLançamento.ResumeLayout(false);
             this.grbLançamento.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudComanda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

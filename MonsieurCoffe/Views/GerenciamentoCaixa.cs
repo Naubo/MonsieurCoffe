@@ -34,13 +34,24 @@ namespace MonsieurCoffe.Views
                 dgvCaixa.DataSource = ordem.BuscarFicha();
                 // atualizar total
                 var r =ordem.BuscarFicha();
-                dgvCaixa.DataSource = r;
-                lblValorTotal.Text = ("R$ ") + String.Format("{0:0.00}", r.Compute("SUM(Total_item)", "True"));
-
+                if (r.Rows.Count > 0) // caso a tabela tiver mais do que zero linhas, faça
+                {
+                    dgvCaixa.DataSource = r;
+                    lblValorTotal.Text = ("R$ ") + String.Format("{0:0.00}", r.Compute("SUM(Total_item)", "True"));
+                }
+                else
+                {
+                    MessageBox.Show("Não existem lançamentos nessa comanda!","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblValorTotal.Text = "R$ 0,00";
+                    nudComanda.Text = null;
+                }
             }
             else
             {
                 MessageBox.Show("Digite o número da ficha!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dgvCaixa.DataSource= null;
+                lblValorTotal.Text = "R$ 0,00";
+                nudComanda.Text = null;
             }
         }
 

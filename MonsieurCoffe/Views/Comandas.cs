@@ -99,9 +99,9 @@ namespace MonsieurCoffe.Views
         {
             //limpar campos
             txbCodProdutoInfo.Clear();
-            nudComanda.Text = "";
+            nudComanda.Text = null;
             txbProdutoLanca.Clear();
-            nudQuantidade.Text = "";
+            nudQuantidade.Text = null;
 
             //resetar grbs
             grbInfo.Enabled = true;
@@ -111,6 +111,11 @@ namespace MonsieurCoffe.Views
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimparTudo();
+        }
+
+        private void nudComanda_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -23,6 +23,12 @@ namespace MonsieurCoffe
 
             //Mudar label de apresentação
             lblSaudacao.Text = "Ola " + usuario.Nome_Completo;
+
+            //esconder de quem n for adm
+            if (usuario.Id != 1)
+            {
+                btnUsuarios.Visible = false;
+            }
         }
 
         private void pctSair_Click(object sender, EventArgs e)
