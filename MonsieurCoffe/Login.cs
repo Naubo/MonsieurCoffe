@@ -44,6 +44,8 @@ namespace MonsieurCoffe
                 janela.ShowDialog();
                 //mostrar login qnd menu fechar:
                 Show();
+                txbEmail.Clear();
+                txbSenha.Clear();
             }
             else
             {

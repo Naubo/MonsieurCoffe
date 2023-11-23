@@ -32,33 +32,36 @@
             this.grbInfo = new System.Windows.Forms.GroupBox();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.txbCodProdutoInfo = new System.Windows.Forms.TextBox();
-            this.txbComandaInfo = new System.Windows.Forms.TextBox();
             this.lblProdutoInfo = new System.Windows.Forms.Label();
             this.lblComandaInfo = new System.Windows.Forms.Label();
             this.grbLançamento = new System.Windows.Forms.GroupBox();
             this.btnLancar = new System.Windows.Forms.Button();
-            this.txbQuantidade = new System.Windows.Forms.TextBox();
             this.txbProdutoLanca = new System.Windows.Forms.TextBox();
             this.lblQuantidade = new System.Windows.Forms.Label();
             this.lblProduto = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvComandas = new System.Windows.Forms.DataGridView();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.nudComanda = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
             this.grbInfo.SuspendLayout();
             this.grbLançamento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudComanda)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
             this.SuspendLayout();
             // 
             // grbInfo
             // 
             this.grbInfo.Controls.Add(this.btnContinuar);
+            this.grbInfo.Controls.Add(this.nudComanda);
             this.grbInfo.Controls.Add(this.txbCodProdutoInfo);
-            this.grbInfo.Controls.Add(this.txbComandaInfo);
             this.grbInfo.Controls.Add(this.lblProdutoInfo);
             this.grbInfo.Controls.Add(this.lblComandaInfo);
             this.grbInfo.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbInfo.Location = new System.Drawing.Point(12, 94);
+            this.grbInfo.Location = new System.Drawing.Point(12, 78);
             this.grbInfo.Name = "grbInfo";
-            this.grbInfo.Size = new System.Drawing.Size(228, 182);
+            this.grbInfo.Size = new System.Drawing.Size(228, 178);
             this.grbInfo.TabIndex = 0;
             this.grbInfo.TabStop = false;
             this.grbInfo.Text = "INFORMAÇÕES";
@@ -85,23 +88,15 @@
             this.txbCodProdutoInfo.Size = new System.Drawing.Size(196, 25);
             this.txbCodProdutoInfo.TabIndex = 3;
             // 
-            // txbComandaInfo
-            // 
-            this.txbComandaInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txbComandaInfo.Location = new System.Drawing.Point(18, 55);
-            this.txbComandaInfo.Name = "txbComandaInfo";
-            this.txbComandaInfo.Size = new System.Drawing.Size(196, 25);
-            this.txbComandaInfo.TabIndex = 2;
-            // 
             // lblProdutoInfo
             // 
             this.lblProdutoInfo.AutoSize = true;
             this.lblProdutoInfo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblProdutoInfo.Location = new System.Drawing.Point(15, 92);
             this.lblProdutoInfo.Name = "lblProdutoInfo";
-            this.lblProdutoInfo.Size = new System.Drawing.Size(131, 17);
+            this.lblProdutoInfo.Size = new System.Drawing.Size(111, 17);
             this.lblProdutoInfo.TabIndex = 1;
-            this.lblProdutoInfo.Text = "COD. PRODUTO:";
+            this.lblProdutoInfo.Text = "Cod. Produto:";
             // 
             // lblComandaInfo
             // 
@@ -115,23 +110,24 @@
             // 
             // grbLançamento
             // 
+            this.grbLançamento.Controls.Add(this.nudQuantidade);
+            this.grbLançamento.Controls.Add(this.btnCancelar);
             this.grbLançamento.Controls.Add(this.btnLancar);
-            this.grbLançamento.Controls.Add(this.txbQuantidade);
             this.grbLançamento.Controls.Add(this.txbProdutoLanca);
             this.grbLançamento.Controls.Add(this.lblQuantidade);
             this.grbLançamento.Controls.Add(this.lblProduto);
             this.grbLançamento.Enabled = false;
             this.grbLançamento.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbLançamento.Location = new System.Drawing.Point(12, 288);
+            this.grbLançamento.Location = new System.Drawing.Point(12, 277);
             this.grbLançamento.Name = "grbLançamento";
-            this.grbLançamento.Size = new System.Drawing.Size(228, 184);
+            this.grbLançamento.Size = new System.Drawing.Size(228, 211);
             this.grbLançamento.TabIndex = 4;
             this.grbLançamento.TabStop = false;
             this.grbLançamento.Text = "LANÇAMENTO";
             // 
             // btnLancar
             // 
-            this.btnLancar.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnLancar.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btnLancar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLancar.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLancar.ForeColor = System.Drawing.Color.Black;
@@ -143,19 +139,12 @@
             this.btnLancar.UseVisualStyleBackColor = false;
             this.btnLancar.Click += new System.EventHandler(this.btnLancar_Click);
             // 
-            // txbQuantidade
-            // 
-            this.txbQuantidade.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txbQuantidade.Location = new System.Drawing.Point(18, 111);
-            this.txbQuantidade.Name = "txbQuantidade";
-            this.txbQuantidade.Size = new System.Drawing.Size(196, 25);
-            this.txbQuantidade.TabIndex = 3;
-            // 
             // txbProdutoLanca
             // 
             this.txbProdutoLanca.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txbProdutoLanca.Location = new System.Drawing.Point(18, 56);
             this.txbProdutoLanca.Name = "txbProdutoLanca";
+            this.txbProdutoLanca.ReadOnly = true;
             this.txbProdutoLanca.Size = new System.Drawing.Size(196, 25);
             this.txbProdutoLanca.TabIndex = 2;
             // 
@@ -165,9 +154,9 @@
             this.lblQuantidade.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblQuantidade.Location = new System.Drawing.Point(15, 93);
             this.lblQuantidade.Name = "lblQuantidade";
-            this.lblQuantidade.Size = new System.Drawing.Size(116, 17);
+            this.lblQuantidade.Size = new System.Drawing.Size(98, 17);
             this.lblQuantidade.TabIndex = 1;
-            this.lblQuantidade.Text = "QUANTIDADE:";
+            this.lblQuantidade.Text = "Quantidade:";
             // 
             // lblProduto
             // 
@@ -175,9 +164,9 @@
             this.lblProduto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblProduto.Location = new System.Drawing.Point(15, 38);
             this.lblProduto.Name = "lblProduto";
-            this.lblProduto.Size = new System.Drawing.Size(88, 17);
+            this.lblProduto.Size = new System.Drawing.Size(72, 17);
             this.lblProduto.TabIndex = 0;
-            this.lblProduto.Text = "PRODUTO:";
+            this.lblProduto.Text = "Produto:";
             // 
             // lblTitulo
             // 
@@ -204,6 +193,34 @@
             this.dgvComandas.TabIndex = 13;
             this.dgvComandas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvComandas_CellClick);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Lucida Bright", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelar.Location = new System.Drawing.Point(18, 174);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(196, 26);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "LIMPAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // nudComanda
+            // 
+            this.nudComanda.Location = new System.Drawing.Point(18, 57);
+            this.nudComanda.Name = "nudComanda";
+            this.nudComanda.Size = new System.Drawing.Size(196, 25);
+            this.nudComanda.TabIndex = 14;
+            // 
+            // nudQuantidade
+            // 
+            this.nudQuantidade.Location = new System.Drawing.Point(18, 116);
+            this.nudQuantidade.Name = "nudQuantidade";
+            this.nudQuantidade.Size = new System.Drawing.Size(196, 25);
+            this.nudQuantidade.TabIndex = 15;
+            // 
             // Comandas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,6 +240,8 @@
             this.grbLançamento.ResumeLayout(false);
             this.grbLançamento.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudComanda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,11 +251,9 @@
 
         private System.Windows.Forms.GroupBox grbInfo;
         private System.Windows.Forms.TextBox txbCodProdutoInfo;
-        private System.Windows.Forms.TextBox txbComandaInfo;
         private System.Windows.Forms.Label lblProdutoInfo;
         private System.Windows.Forms.Label lblComandaInfo;
         private System.Windows.Forms.GroupBox grbLançamento;
-        private System.Windows.Forms.TextBox txbQuantidade;
         private System.Windows.Forms.TextBox txbProdutoLanca;
         private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Label lblProduto;
@@ -244,5 +261,8 @@
         private System.Windows.Forms.DataGridView dgvComandas;
         private System.Windows.Forms.Button btnContinuar;
         private System.Windows.Forms.Button btnLancar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.NumericUpDown nudComanda;
+        private System.Windows.Forms.NumericUpDown nudQuantidade;
     }
 }

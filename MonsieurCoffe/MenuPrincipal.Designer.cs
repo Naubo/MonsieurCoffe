@@ -82,6 +82,7 @@
             this.btnCaixa.TabIndex = 3;
             this.btnCaixa.Text = "CAIXA";
             this.btnCaixa.UseVisualStyleBackColor = true;
+            this.btnCaixa.Click += new System.EventHandler(this.btnCaixa_Click);
             // 
             // btnUsuarios
             // 
